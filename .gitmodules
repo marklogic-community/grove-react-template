@@ -4,3 +4,6 @@
 [submodule "marklogic"]
 	path = marklogic
 	url = https://project.marklogic.com/repo/scm/~gjosten/muir-ml-gradle.git
+[submodule "ui"]
+	path = ui
+	url = https://project.marklogic.com/repo/scm/~pmcelwee/muir-react-ui.git
