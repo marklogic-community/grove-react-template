@@ -8,13 +8,14 @@
   "devDependencies": {},
   "scripts": {
     "lint": "cd middle-tier && npm run lint; cd ../ui && npm run lint",
+    "lint:fix": "cd middle-tier && npm run lint:fix; cd ../ui && npm run lint:fix",
     "postinstall": "node scripts/postinstall.js",
     "start": "concurrently --kill-others \"npm run middleTier\" \"npm run ui\" ",
     "start:prod": "concurrently \"npm run middleTier:prod\" \"npm run ui\" ",
     "middleTier": "cd middle-tier && npm start",
     "middleTier:prod": "cd middle-tier && npm run start:prod",
     "ui": "cd ui && npm start",
-    "test": "cd ui && npm test"
+    "test": "cd ui && npm test && cd ../middle-tier && npm test",
   },
   "repository": {
     "type": "git",
