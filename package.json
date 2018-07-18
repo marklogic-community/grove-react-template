@@ -7,6 +7,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "lint": "cd middle-tier && npm run lint; cd ../ui && npm run lint",
     "postinstall": "node scripts/postinstall.js",
     "start": "concurrently --kill-others \"npm run middleTier\" \"npm run ui\" ",
     "start:prod": "concurrently \"npm run middleTier:prod\" \"npm run ui\" ",
