@@ -15,7 +15,7 @@
     "middleTier": "cd middle-tier && npm start",
     "middleTier:prod": "cd middle-tier && npm run start:prod",
     "ui": "cd ui && npm start",
-    "test": "cd ui && npm test && cd ../middle-tier && npm test",
+    "test": "concurrently 'cd middle-tier && npm test' 'cd ui && npm test'"
   },
   "repository": {
     "type": "git",
