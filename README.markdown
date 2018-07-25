@@ -16,7 +16,7 @@ The commands listed below should be typed into a terminal/console window.
 
 1. [Install MarkLogic 9](https://developer.marklogic.com/products), start it, and initialize it at `localhost:8001`.
 2. Check if you already have Node.js version 8 or above installed by running `node -v`. If not, [install Node.js](https://nodejs.org). 
-3. Check if you already have npm version 5 or above installed by running `npm -v`. If not, run `npm install -g npm` to get the latest.
+3. Check if you already have npm version 5.7.0 or above installed by running `npm -v`. If not, run `npm install -g npm` to get the latest.
 4. Check if you already have Java 1.8 or above installed by running `java -version`. If not, [install Java 1.8](https://www.java.com/en/download/help/download_options.xml). Java is required because the generated Muir project will use [ml-gradle](https://github.com/marklogic-community/ml-gradle) to administer MarkLogic and [mlcp](https://developer.marklogic.com/products/mlcp) to load data.
 
 ### muir-cli
