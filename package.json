@@ -2,18 +2,18 @@
   "name": "muir-react-template",
   "version": "0.10.0-alpha.3",
   "description": "Turning MarkLogic forests into a place for users to live",
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^3.6.1"
   },
-  "devDependencies": {},
+  "dependencies": {},
   "scripts": {
+    "build": "cd ui && npm run build",
     "lint": "cd middle-tier && npm run lint; cd ../ui && npm run lint",
     "lint:fix": "cd middle-tier && npm run lint:fix; cd ../ui && npm run lint:fix",
     "postinstall": "node scripts/postinstall.js",
     "start": "concurrently --kill-others \"npm run middleTier\" \"npm run ui\" ",
-    "start:prod": "concurrently \"npm run middleTier:prod\" \"npm run ui\" ",
+    "start:prod": "cd middle-tier && npm run start:prod",
     "middleTier": "cd middle-tier && npm start",
-    "middleTier:prod": "cd middle-tier && npm run start:prod",
     "ui": "cd ui && npm start",
     "test": "concurrently 'cd middle-tier && npm test' 'cd ui && npm test'"
   },

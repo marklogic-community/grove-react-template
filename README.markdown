@@ -32,6 +32,21 @@ To start a development server at `localhost:3000`:
 
 For more discussion about how to make changes to your Muir project see the "Learning to Customize and Extend Your Application" section of [GUIDE.markdown](docs/GUIDE.markdown#developing-your-app) in this repository.
 
+## Run your project in production
+
+This command will build the `ui` into static files and start the Node middle-tier in production. The Node middle-tier will serve those static UI files. See `middle-tier/README.markdown` if you need to configure how that works, or the path to the static files. **Note that it is a better practice to set up a reverse proxy like Nginx or HAProxy to serve these static files instead, but this will do.**.
+
+If you have not already done so, you will need to build your current UI into static files.
+
+Typically, you will want to set `NODE_ENV` to 'production' when running these commands.
+
+    NODE_ENV=production npm run build
+    NODE_ENV=production npm run start:prod
+
+## UI and Middle-Tier Application Documentation
+
+Much additional documentation is available in `ui/README.markdown` and `middle-tier/README.markdown` about the UI and middle-tier specifically. Please also look there for information.
+
 ## Customizing
 
 As you work with your Muir Project, you will soon want to customize it. To understand the design of the UI-Toolkit and how to customize it to your needs, is most important to understand how to use Muir to quickly create a MarkLogic-backed project - and then to customize it. For this, please *read [the Advanced Guide to Muir Guide](docs/GUIDE.markdown)*.
