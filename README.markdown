@@ -41,7 +41,13 @@ If you have not already done so, you will need to build your current UI into sta
 Typically, you will want to set `NODE_ENV` to 'production' when running these commands.
 
     NODE_ENV=production npm run build
-    NODE_ENV=production npm run start:prod
+    NODE_ENV=production GROVE_UI_BUILD_PATH=../ui/build npm run start:prod
+
+Note that this will run on `http://localhost:9003` by default (rather than port 3000, where the development Webpack server runs by default).
+
+You can more durably set the `GROVE_UI_BUILD_PATH` in  `middle-tier/.env` or `middle-tier/.env.production` (or some other `.env` file) rather than specifying it on the command line. Just add the line:
+
+    GROVE_UI_BUILD_PATH=../ui/build
 
 ## UI and Middle-Tier Application Documentation
 
