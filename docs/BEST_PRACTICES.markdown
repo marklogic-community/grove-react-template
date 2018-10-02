@@ -1,6 +1,6 @@
 **NOTE: This document is currently out-of-date! Updates coming soon.**
 
-# ML-UI-React / Resources (Muir) Best Practices Guide
+# MarkLogic Grove Best Practices Guide
 
 This is a living, breathing document describing our current understanding of best practices when building a single-page Web application backed by MarkLogic. Building software is half-craft, half-engineering and specific requirements vary, so your mileage may vary.
 
@@ -125,7 +125,7 @@ Instead of unit test, we have adopted an integration-test-first method, which is
 #### Unit Testing Smart Components
 
 - Start with [smoke tests](http://acco.io/a-practical-guide-to-testing-react-apps/#Smoke_tests).
-- TODO: examples. For now, look at muir itself for examples, though we have not exhaustively tested everything in this repository either.
+- TODO: examples. For now, look at Grove itself for examples, though we have not exhaustively tested everything in this repository either.
 
 ## Use React Error Boundaries
 
@@ -143,7 +143,7 @@ Over code style, developers could argue endlessly. For this reason, we recommend
 
 ## Typing
 
-We are trying to minimize the learning curve for new developers, so adoption of a typing system should be completely optional for applications consuming muir libraries. 
+We are trying to minimize the learning curve for new developers, so adoption of a typing system should be completely optional for applications consuming Grove libraries. 
 
 That said, it may be useful for a library to adopt a typing system and it may be possible to hide that bit of complexity from the consuming application. TypeScript and Flow are options. Feedback welcome on recommendations here.
 

@@ -1,4 +1,4 @@
-# MarkLogic UI-React / UI-Resources (Muir) Welcome Tutorial
+# MarkLogic Grove Welcome Tutorial
 
 Welcome!
 
@@ -58,8 +58,8 @@ In case you missed it, the README has [VERY Quick Start instructions that show y
 
 Clone down the reference application provided by the Muir project. For this, you will need to have a command-line terminal and [git](https://git-scm.com/downloads) for version-control.
 
-    git clone --recursive ssh://git@project.marklogic.com:7999/nacw/muir.git
-    cd muir
+    git clone --recursive ssh://git@project.marklogic.com:7999/nacw/grove-react-template.git
+    cd grove-react-template
  
 The reference application has everything you need to get a search-and-discovery application running. We'll describe it all in more detail below, but just to orient you, be aware that this source code includes:
 
@@ -97,7 +97,7 @@ Or, on Windows:
 
     gradlew.bat mlDeploy
 
-That should have just worked! You can verify that by pointing your browser to the [MarkLogic Admin UI](http://localhost:8001). On the right, under "Databases", you should see "muir-content" and "muir-modules" (you will also see "muir-triggers", a helpful database that, alas, we won't use in this tutorial). Under "App Servers", you should see "muir", an HTTP server running on port 8063. There will be several "muir" entries under "Forests". And if you were to click on "Users" or "Roles" under "Security", you should see some muir-related users and roles. [TODO: add screenshots]
+That should have just worked! You can verify that by pointing your browser to the [MarkLogic Admin UI](http://localhost:8001). On the right, under "Databases", you should see "grove-content" and "grove-modules" (you will also see "grove-triggers", a helpful database that, alas, we won't use in this tutorial). Under "App Servers", you should see "grove", an HTTP server running on port 8063. There will be several "grove" entries under "Forests". And if you were to click on "Users" or "Roles" under "Security", you should see some grove-related users and roles. [TODO: add screenshots]
 
 Congratulations, you've got MarkLogic configured and all the configuration is under version control, so you will be on the same page as the rest of your [Friend Finder; TODO: connect to overall narrative] team. Any changes you make will be shared using `git` and everyone can stay in sync, as well as your production and staging systems and any automated testing builds.
 
@@ -125,17 +125,17 @@ TODO
 
 Users:
 
-- muir-reader
-- muir-writer
-- muir-admin
+- grove-reader
+- grove-writer
+- grove-admin
 
 Roles:
 
-- muir-nobody
-- muir-reader
-- muir-writer
-- muir-internal (amping)
-- muir-admin
+- grove-nobody
+- grove-reader
+- grove-writer
+- grove-internal (amping)
+- grove-admin
 - rest-reader
 - rest-writer
 - rest-admin

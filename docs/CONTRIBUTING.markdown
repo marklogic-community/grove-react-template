@@ -1,6 +1,6 @@
-# Contributing to Muir
+# Contributing to Grove
 
-A document about contributing to MUIR in general is found at https://wiki.marklogic.com/display/SAL/MUIR+Developer+Starters+Guide.
+A document about contributing to Grove in general is found at https://wiki.marklogic.com/display/SAL/Grove+Developer+Starters+Guide.
 
 ## Contributing to the React Template Specifically
 
@@ -26,21 +26,21 @@ Here are some suggested steps for learning the Treehouse stack while building a 
 
 5. **Layer in Redux.** Redux is definitely more lines of code than what you've already got. I'm sure there are cases where it isn't worth it. But, there is an enormous benefit to clearly modeling your state and clearly defining an interface to update that state. No more searching for state changes scattered all over the place. You can even use DevTools to see exactly what actions are being fired and what state changes each caused. It also creates a layer that is not dependent on React and can be re-used in other front-end frameworks.
 
-    See the Muir reference app's [index.js](ui/src/index.js) for an example of connecting a Redux store to your app. Note that the reducers actually get composed together in [appReducer.js](ui/src/appReducer.js).
+    See the Grove reference app's [index.js](ui/src/index.js) for an example of connecting a Redux store to your app. Note that the reducers actually get composed together in [appReducer.js](ui/src/appReducer.js).
 
-    See the Muir reference app's [App.js](ui/src/App.js) for an example of importing selectors and actions and passing them to containers. Alternatively, you can do those imports in the containers themselves. I've used both approaches successfully.
+    See the Grove reference app's [App.js](ui/src/App.js) for an example of importing selectors and actions and passing them to containers. Alternatively, you can do those imports in the containers themselves. I've used both approaches successfully.
 
         i.      NOTE that App.js uses the bindSelectors() function to bind the selector functions to their 'mountPoint' with the Redux store. This is a functional pattern I am still working to crystallize: It keeps selectors from knowing too much about their parents. Such knowledge is problematic for reuse (or multiple use within the same app). I've gotten to the point where I think I can turn bindSelectors into a utility function. You'll notice I use essentially the same function at each level of reducer composition inside my Redux modules.
 
         ii.      There is a similar need for actions, but I haven't yet identified a solution. The main need there is a way to namespace actionTypes, so the same Redux module can be mounted in several different places within a single application.
 
-    Your smart container will use the 'mapStateToProps' and 'mapDispatchToProps' methods to hook up Redux. See the Muir reference app's [ui/src/containers/](ui/src/containers/) directory for examples.
+    Your smart container will use the 'mapStateToProps' and 'mapDispatchToProps' methods to hook up Redux. See the Grove reference app's [ui/src/containers/](ui/src/containers/) directory for examples.
 
-    We have adopted the 'duck' modular approach (see ["Best Practices"](docs/BEST_PRACTICES.markdown) for details) to organize Redux code. See [muir-crud-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-crud-redux/browse) for a relatively simple example. Experimentation with other organization schemes is possible, but this has worked well, and I recommend just adopting it for now.
+    We have adopted the 'duck' modular approach (see ["Best Practices"](docs/BEST_PRACTICES.markdown) for details) to organize Redux code. See [grove-crud-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/grove-crud-redux/browse) for a relatively simple example. Experimentation with other organization schemes is possible, but this has worked well, and I recommend just adopting it for now.
 
         i.      You should separate your Redux code into its own folder, so it can eventually be extracted as a dependency (so it can be reused with other front-end frameworks). Possibly, your redux module will fit inside an existing module, but that's probably unusual.
 
-    The Redux docs and elsewhere has a lot of information about unit testing actions and reducers. I started doing that, but found it too brittle and tied to the shape of the state object, discouraging refactoring. I find that I often want to refactor the state shape, and also that its shape really should be an implementation detail hidden behind a public API of selectors and actions. I hit on 'integration' tests, which make assertions on selectors and call actions. See the files ending in 'integration.test.js' in [muir-crud-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-crud-redux/browse) and [muir-search-redux](https://project.marklogic.com/repo/projects/NACW/repos/muir-search-redux/browse) for examples.
+    The Redux docs and elsewhere has a lot of information about unit testing actions and reducers. I started doing that, but found it too brittle and tied to the shape of the state object, discouraging refactoring. I find that I often want to refactor the state shape, and also that its shape really should be an implementation detail hidden behind a public API of selectors and actions. I hit on 'integration' tests, which make assertions on selectors and call actions. See the files ending in 'integration.test.js' in [grove-crud-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/grove-crud-redux/browse) and [grove-search-redux](https://project.marklogic.com/repo/projects/NACW/repos/grove-search-redux/browse) for examples.
 
     At some point, you've got to specify the contract for network calls to the backend. Our goal with this stack is to make this contract, which alternative server implementations will have to fulfill, match the front-end abstractions. At the end of the design, this API will be called in a special kind of Redux action called a 'thunk'. Best practice is to pull this out into an API object, which can be overridden by the consumer.
 
@@ -54,7 +54,7 @@ Here are some suggested steps for learning the Treehouse stack while building a 
 
 TODO: Do these two sections complement each other?
 
-When developing a new reusable feature for the Muir project (that is, one destined to become part of the framework), there are basically 5 design layers. (These might be important considerations if you are developing something app-specific too, but that's up to you.)
+When developing a new reusable feature for the Grove project (that is, one destined to become part of the framework), there are basically 5 design layers. (These might be important considerations if you are developing something app-specific too, but that's up to you.)
 
 1. UI (React components) and what they need in terms of pieces of information and functions to invoke - if using Redux, they will get the info from "selectors" and the functions will be "action creators" -> but Redux doesn't absolutely need to be used here, any functions / data will do.
 

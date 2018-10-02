@@ -1,23 +1,23 @@
-# Advanced Guide to the Muir React-Redux-Node Template
+# Advanced Guide to the Grove React-Redux-Node Template
 
-This Muir Project Template specifies a Project consisting of two Muir Applications:
+This Grove Project Template specifies a Project consisting of two Grove Applications:
 
 - a UI Application using [React](https://reactjs.org/) and [Redux](https://redux.js.org/), mounted in the `ui` directory, and
 - a middle-tier Application using [the Node Express library](https://expressjs.com/), mounted in the `middle-tier` directory
 
 In addition, it provides an ml-gradle installation in the `marklogic` directory. The default ml-gradle configuration matches the other defaults in this Template, but any changes to the application template at the moment have to also be changed manually in the ml-gradle configuration. We will likely improve this story soon.
 
-The UI and middle-tier Applications are yours to extend using the tools of their respective ecosystems. In the future, you may be able to install Muir Plugins or even swap in Vue MUIR UI, or a Java MUIR middle-tier, so long as they meet the API contracts defined by Muir.
+The UI and middle-tier Applications are yours to extend using the tools of their respective ecosystems. In the future, you may be able to install Grove Plugins or even swap in Vue Grove UI, or a Java Grove middle-tier, so long as they meet the API contracts defined by Grove.
 
 ## Installing the template
 
-The recommended way to install this template is using [the muir-cli](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-cli/browse) as [described in the README](README.markdown).
+The recommended way to install this template is using [the grove-cli](https://project.marklogic.com/repo/users/pmcelwee/repos/grove-cli/browse) as [described in the README](README.markdown).
 
-Note that while, at the moment, you can `git clone --recursive` this repository and get a working application, that is an implementation detail and is likely to change. The muir-cli is the one supported way to turn this Template into a Project.
+Note that while, at the moment, you can `git clone --recursive` this repository and get a working application, that is an implementation detail and is likely to change. The grove-cli is the one supported way to turn this Template into a Project.
 
 ## A Modular Template
 
-It is worth noting that this Template is designed to be highly modular. You can adopt various parts without the others - and, indeed, without using Muir itself.
+It is worth noting that this Template is designed to be highly modular. You can adopt various parts without the others - and, indeed, without using Grove itself.
 
 These include:
 
@@ -27,7 +27,7 @@ These include:
 
 - Redux modules to manage client-side state and handle interactions with a middle-tier
 
-    Our Redux components could be used with a different front-end framework, including AngularJS and Vue.js. We have proved this ourselves, by creating reference applications in AngularJS and Vue.js which reuse the muir-search-redux module.
+    Our Redux components could be used with a different front-end framework, including AngularJS and Vue.js. We have proved this ourselves, by creating reference applications in AngularJS and Vue.js which reuse the grove-search-redux module.
 
 - a default and replaceable Node middle-tier using Express.js.
 
@@ -47,11 +47,11 @@ In this template, we have leveraged Facebook's [create-react-app project](https:
 
 This indirection could cause some confusion. For example, Webpack is central to build processes, but you may be surprised to see that there is no `ui/webpack.config.js` file. Instead, create-react-app provides the necessary configuration.
 
-This optimizes away most maintainance of our build process over time and creates a common experience for developers across all Muir React apps. There are [many ways to customize](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md) what is provided. If, however, you find that you need to separate from create-react-app, there is a [way to "eject"](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject). Careful, though, because that is a one-way step: You will not be able to stay up-to-date with create-react-app updates over time.
+This optimizes away most maintainance of our build process over time and creates a common experience for developers across all Grove React apps. There are [many ways to customize](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md) what is provided. If, however, you find that you need to separate from create-react-app, there is a [way to "eject"](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject). Careful, though, because that is a one-way step: You will not be able to stay up-to-date with create-react-app updates over time.
 
 #### Styling (Look and Feel)
 
-Muir React components are styled using [Bootstrap 3](https://getbootstrap.com/docs/3.3/). There are [many](https://startbootstrap.com/) [themes](https://themes.getbootstrap.com/collections/all) [available](https://www.google.com/search?q=bootstrap+themes) to update the look-and-feel of standard Bootstrap classes.
+Grove React components are styled using [Bootstrap 3](https://getbootstrap.com/docs/3.3/). There are [many](https://startbootstrap.com/) [themes](https://themes.getbootstrap.com/collections/all) [available](https://www.google.com/search?q=bootstrap+themes) to update the look-and-feel of standard Bootstrap classes.
 
 You could, of course, also provide your own custom CSS in `ui/src/index.css`.
 
@@ -61,13 +61,13 @@ If you find yourself editing React components, take a look at the [documentation
 
 We selected React in large part because there are many excellent resources for learning to work with the framework (as well as extending it). To learn React, you should [start with the official React docs](https://reactjs.org/docs/hello-world.html) or [tutorial](https://reactjs.org/tutorial/tutorial.html), which will introduce you to the framework in a highly intuitive way.
 
-The presentational React components are provided through a separate libary: [muir-core-react-components](https://project.marklogic.com/repo/projects/NACW/repos/muir-core-react-components/browse). These components are 'dumb', presentation-only React components that render html based on provided properties and invoke callback functions based on user interaction. (Here is a [good article](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the useful pattern of dividing an application between 'dumb', presentational components and 'smart' containers. We lean heavily on this pattern in Muir.)
+The presentational React components are provided through a separate libary: [grove-core-react-components](https://project.marklogic.com/repo/projects/NACW/repos/grove-core-react-components/browse). These components are 'dumb', presentation-only React components that render html based on provided properties and invoke callback functions based on user interaction. (Here is a [good article](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the useful pattern of dividing an application between 'dumb', presentational components and 'smart' containers. We lean heavily on this pattern in Grove.)
 
 In particular, the React components are unaware of the Redux layer. They simply define properties and functions that they expect to be passed to them. They are only responsible for rendering an appropriate view based on those properties and for wiring user actions to the passed-in functions.
 
-The muir-core-react-components are imported and used in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/MLSearchContainer.js`](`ui/src/containers/MLSearchContainer.js`).
+The grove-core-react-components are imported and used in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/MLSearchContainer.js`](`ui/src/containers/MLSearchContainer.js`).
 
-If you want to change the React components, you can provide your own components and import those instead. (Your components may also import some of the muir-core-react-components, so you don't have to recreate everything.)
+If you want to change the React components, you can provide your own components and import those instead. (Your components may also import some of the grove-core-react-components, so you don't have to recreate everything.)
 
 ### Client-Side State-Management System (using Redux)
 
@@ -81,7 +81,7 @@ Each module also defines [actionCreators](http://redux.js.org/docs/basics/Action
 
 Finally, each Redux module currently defines an interface to the service tier (for example, for communicating with MarkLogic or other Web services to run a search). It calls out to a specific endpoint and expects a certain shape of response. We are still fleshing this out, but the goal is to make the service tier completely swappable, so long as an adapter is provided that provides the Redux module the interface that it requires.
 
-At the moment, we provide three modules: [muir-search-redux](https://project.marklogic.com/repo/projects/NACW/repos/muir-search-redux/browse), [muir-crud-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-crud-redux/browse), and [muir-user-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/muir-user-redux/browse).
+At the moment, we provide three modules: [grove-search-redux](https://project.marklogic.com/repo/projects/NACW/repos/grove-search-redux/browse), [grove-crud-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/grove-crud-redux/browse), and [grove-user-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/grove-user-redux/browse).
 
 Your application needs to provide some glue to connect the Redux modules to the 'dumb' React components, which are not aware of Redux. This Template does that, in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/`](`ui/src/containers/`), which contains 'smart' React containers that are Redux-aware and pass the appropriate properties and functions down to the 'dumb' React components.
 
@@ -89,11 +89,11 @@ If you need to modify the way selectors or actionCreators work, you can create d
 
 If you are extending this application, you will have to decide whether you are adding new state and whether it should be managed by Redux or not. It is not mandatory. Redux adds some indirection, complexity and constraints in exchange for making state easier to reason about and for assistance integrating different parts of your application. The author of Redux has a good article exploring these trade-offs, called, "[You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)." 
 
-For example, if you create a component that toggle a pop-up on or off, the `popUpStatus` bit of state might properly belong just to your component and would not need to go into the global Redux store. Redux modules are also a central part of the Muir architecture, so if you are planning to make your extension reusable, that would be a point in favor of using Redux for application-wide state. There are many articles out there on this, here is [one of them](https://github.com/gaearon/redux-thunk).
+For example, if you create a component that toggle a pop-up on or off, the `popUpStatus` bit of state might properly belong just to your component and would not need to go into the global Redux store. Redux modules are also a central part of the Grove architecture, so if you are planning to make your extension reusable, that would be a point in favor of using Redux for application-wide state. There are many articles out there on this, here is [one of them](https://github.com/gaearon/redux-thunk).
 
 ### Default Node middle-tier
 
-The Muir Node middle-tier is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this Muir middle-tier Application in [its repository](https://project.marklogic.com/repo/projects/NACW/repos/muir-node/browse).
+The Grove Node middle-tier is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this Grove middle-tier Application in [its repository](https://project.marklogic.com/repo/projects/NACW/repos/grove-node/browse).
 
 ### MarkLogic Configuration
 
