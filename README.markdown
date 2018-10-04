@@ -44,12 +44,15 @@ For more discussion about how to make changes to your Muir project see the "Lear
 
 This command will build the `ui` into static files and start the Node middle-tier in production. The Node middle-tier will serve those static UI files. See `middle-tier/README.markdown` if you need to configure how that works, or the path to the static files. **Note that it is a better practice to set up a reverse proxy like Nginx or HAProxy to serve these static files instead, but this will do.**.
 
-If you have not already done so, you will need to build your current UI into static files.
-
-Typically, you will want to set `NODE_ENV` to 'production' when running these commands.
+If you have not already done so, you will need to build your current UI into static files within the `ui/build` directory. You may want to set `NODE_ENV` to "production", so the build process includes all production optimizations.
 
     NODE_ENV=production npm run build
-    NODE_ENV=production GROVE_UI_BUILD_PATH=../ui/build npm run start:prod
+
+Then you can run:
+
+    npm run start:prod
+
+By default, `start:prod` will set `NODE_ENV` to "production", and it will tell the middle-tier to serve the built UI from `ui/build`, by setting `GROVE_UI_BUILD_PATH` to "../ui/build". You can modify this command if, for example, you are following best practices and serving the UI files from a reverse proxy.
 
 Note that this will run on `http://localhost:9003` by default (rather than port 3000, where the development Webpack server runs by default).
 
