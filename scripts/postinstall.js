@@ -3,6 +3,8 @@ var path = require('path');
 var child_process = require('child_process');
 var os = require('os');
 
+var spawnedProcesses  = [];
+
 function do_npm_install(folder, installArgs) {
   installArgs = installArgs || [];
   installArgs.unshift('i');
@@ -16,12 +18,23 @@ function do_npm_install(folder, installArgs) {
 	console.log('');
 
   // install folder
-  child_process.spawn(
+  var child = child_process.spawn(
     npmCmd,
     installArgs,
     { env: process.env, cwd: folder, stdio: 'inherit' }
   );
-}
+  // Keep track of the all the processes. We may need to abort the install.
+  spawnedProcesses.push(child);
+  // Fully abort the install if any process closes with anything other than a code of 0.
+  child.on('close', (code, signal) => {
+    if (code !== 0) {
+      console.log(`"npm install" inside ${folder} process exited with code ${code}, signal ${signal}`);
+      spawnedProcesses.forEach(function(child) {
+        child.kill('SIGABRT');
+      });
+    }
+  });
+  }
 
 function npm_install(folder, installArgs) {
   if ( fs.existsSync(path.join(folder, 'package.json')) ) {
