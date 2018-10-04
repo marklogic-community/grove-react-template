@@ -8,8 +8,8 @@ services:
         source: marklogic_data
         target: /data
     ports:
-      - "7997-8020:7997-8020/tcp"
-      - "8200-8210:8200-8210/tcp"
+      - "7997:7997/tcp"
+      - "8000-8002:8000-8002/tcp"
       - "8063:8063/tcp"
 
   nodejs:
@@ -19,7 +19,6 @@ services:
     links: 
       - marklogic
     ports:
-      - "8080:8080/tcp"
       - "9003:9003/tcp"
       
   gradle:
