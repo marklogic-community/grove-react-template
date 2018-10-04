@@ -15,6 +15,7 @@
     "start": "concurrently --kill-others \"npm run middleTier\" \"npm run ui\" ",
     "start:prod": "cross-env-shell NODE_ENV=production GROVE_UI_BUILD_PATH=../ui/build npm run middleTier:prod",
     "middleTier": "cd middle-tier && npm start",
+    "middleTier:prod": "cd middle-tier && npm run start:prod",
     "ui": "cd ui && npm start",
     "test": "concurrently 'cd middle-tier && npm test' 'cd ui && npm test'"
   },
