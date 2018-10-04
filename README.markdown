@@ -22,6 +22,14 @@ The `ui` part of this project was built using the [Create-React-App library](htt
 
 ## Developing your project
 
+To install dependencies:
+
+    npm install
+
+To create shared configuration between the three tiers (`marklogic`, `middle-tier`, and `ui`):
+
+    grove config
+
 To run the tests:
 
     npm test
