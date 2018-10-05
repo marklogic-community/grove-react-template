@@ -1,17 +1,19 @@
 {
   "name": "muir-react-template",
   "version": "0.10.0-alpha.3",
-  "description": "Turning MarkLogic forests into a place for users to live",
-  "dependencies": {
-    "concurrently": "^3.6.1"
+  "description": "React/Redux template for MarkLogic Grove",
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "cross-env": "^5.2.0"
   },
-  "devDependencies": {},
+  "dependencies": {},
   "scripts": {
+    "build": "cd ui && npm run build",
     "lint": "cd middle-tier && npm run lint; cd ../ui && npm run lint",
     "lint:fix": "cd middle-tier && npm run lint:fix; cd ../ui && npm run lint:fix",
     "postinstall": "node scripts/postinstall.js",
     "start": "concurrently --kill-others \"npm run middleTier\" \"npm run ui\" ",
-    "start:prod": "concurrently \"npm run middleTier:prod\" \"npm run ui\" ",
+    "start:prod": "cross-env-shell NODE_ENV=production GROVE_UI_BUILD_PATH=../ui/build npm run middleTier:prod",
     "middleTier": "cd middle-tier && npm start",
     "middleTier:prod": "cd middle-tier && npm run start:prod",
     "ui": "cd ui && npm start",
@@ -19,17 +21,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://project.marklogic.com:7999/nacw/muir.git"
+    "url": "ssh://git@project.marklogic.com:7999/nacw/grove-react-template.git"
   },
+  "keywords": [
+    "MarkLogic",
+    "Grove",
+    "UI",
+    "search",
+    "React"
+  ],
   "license": "Apache-2.0",
   "contributors": [
     {
       "name": "Patrick McElwee",
-      "email": "patrick.mcelwee@marklogic.com"
+      "url": "https://github.com/patrickmcelwee"
     },
     {
-      "name": "Frank Sanders",
-      "email": "frank.sanders@marklogic.com"
+      "name": "Frank Sanders"
+    },
+    {
+      "name": "Marianne Myers",
+      "url": "https://github.com/mariannemyers"
+    },
+    {
+      "name": "Geert Josten",
+      "url": "https://github.com/grtjn"
     }
   ]
 }
