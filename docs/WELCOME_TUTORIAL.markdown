@@ -4,7 +4,7 @@ Welcome!
 
 If you are here, you probably already know that [MarkLogic](http://www.marklogic.com/what-is-marklogic/) is a powerful, multi-model, NoSQL database with ACID transactions and top-grade security. You can use it to build all kinds of applications.
 
-While working through this tutorial, you will use pieces of this Muir (rhymes with 'pure') library to quickly build a single-page Web application backed by MarkLogic.
+While working through this tutorial, you will use pieces of this Grove (rhymes with 'pure') library to quickly build a single-page Web application backed by MarkLogic.
 
 A quick, but important, aside: The tech stack used here (React, NodeJS, etc) is by no means required to work with MarkLogic. **You can use your preferred tools to build a Web application backed by MarkLogic.** MarkLogic exposes a rich and extensible [REST API](https://docs.marklogic.com/guide/rest-dev). Any tool capable of making http requests can be used to build an app against MarkLogic.
 
@@ -56,7 +56,7 @@ In case you missed it, the README has [VERY Quick Start instructions that show y
 
 ## Get the ML-UI-React Source Code
 
-Clone down the reference application provided by the Muir project. For this, you will need to have a command-line terminal and [git](https://git-scm.com/downloads) for version-control.
+Clone down the reference application provided by the Grove project. For this, you will need to have a command-line terminal and [git](https://git-scm.com/downloads) for version-control.
 
     git clone --recursive ssh://git@project.marklogic.com:7999/nacw/grove-react-template.git
     cd grove-react-template
@@ -187,11 +187,11 @@ When you search, you won't see any results yet, because we have not yet loaded a
 
 ## Load Some Sample Data with the MarkLogic Content Pump (mlcp)
 
-In this very simple, initial tutorial, you are being introduced to the basics of setting up Muir and MarkLogic. We are going to load a little bit of data as-is and demonstrate how MarkLogic automatically indexes both the words and the structure, making the documents instantly searchable upon ingest. We will then explore additional indexes that allow you to answer useful queries even more quickly.
+In this very simple, initial tutorial, you are being introduced to the basics of setting up Grove and MarkLogic. We are going to load a little bit of data as-is and demonstrate how MarkLogic automatically indexes both the words and the structure, making the documents instantly searchable upon ingest. We will then explore additional indexes that allow you to answer useful queries even more quickly.
 
 This is all just a little taste, though, of the value of MarkLogic. MarkLogic is the world's best database at integrating data from silos; its true value shines through once you load in large amounts of data from multiple sources. Like in this tutorial, you can load it all as-is and instantly search against it, *all* of it, in once place, but that's only the beginning. After completing this tutorial, you can learn how to use MarkLogic as an Operational Data Hub using the [MarkLogic Data Hub Framework](https://marklogic-community.github.io/marklogic-data-hub/).
 
-You already have your search-and-discovery application running in a console window, so open a new one to launch your MarkLogic data load. (This is a common practice when developing using Muir, dedicating one console window to running the application while you can use the other to make changes. For most changes the running application will not need to be restarted.)
+You already have your search-and-discovery application running in a console window, so open a new one to launch your MarkLogic data load. (This is a common practice when developing using Grove, dedicating one console window to running the application while you can use the other to make changes. For most changes the running application will not need to be restarted.)
 
 Data loading is well handled by ml-gradle, so change directories into `marklogic`:
 

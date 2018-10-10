@@ -14,7 +14,7 @@ We want to encourage adoption and learning, not to burden users who may not be u
 
 That advice is a bit vague, but it includes:
 
-- presenting a simple interface to developers using Muir. This might include:
+- presenting a simple interface to developers using Grove. This might include:
   - providing a single executable to start an application,
   - wrapping up common command-line commands into a simple build script and diverting complex STDOUT into a log file, accessible for debugging,
 
@@ -32,11 +32,11 @@ First, present simplicity (search bar plus facets). Then offer easy ways to laye
 
 ### Application-State Management Layer
 
-A clearly defined state management system running on the client-side is a core abstraction of the Muir framework. We use [Redux](https://redux.js.org/) for this.
+A clearly defined state management system running on the client-side is a core abstraction of the Grove framework. We use [Redux](https://redux.js.org/) for this.
 
-There are many benefits of the Redux approach. An important one for Muir is that the same Redux modules can be used with a wide variety of front-end frameworks, including AngularJS and Vue.js in addition to React.
+There are many benefits of the Redux approach. An important one for Grove is that the same Redux modules can be used with a wide variety of front-end frameworks, including AngularJS and Vue.js in addition to React.
 
-In Muir, Redux modules should be [organized as "ducks."](https://github.com/alexnm/re-ducks) This [link](https://github.com/alexnm/re-ducks) contains more details. This means that a Redux module bundles together all related code and exposes actionCreators and state selectors as its primary interface. (It also exposes its top-level "reducer", so it can be integrated into an application's single Redux store.) Testing these "duck" Redux module should focus primarily on testing actionCreators and selectors together (more below in the section on testing).
+In Grove, Redux modules should be [organized as "ducks."](https://github.com/alexnm/re-ducks) This [link](https://github.com/alexnm/re-ducks) contains more details. This means that a Redux module bundles together all related code and exposes actionCreators and state selectors as its primary interface. (It also exposes its top-level "reducer", so it can be integrated into an application's single Redux store.) Testing these "duck" Redux module should focus primarily on testing actionCreators and selectors together (more below in the section on testing).
 
 #### Model Application State for Front-End Needs
 
@@ -71,7 +71,7 @@ Presentational components are concerned only with:
 - rendering a view based on input properties
 - responding to user interaction by invoking passed-in callbacks or emitting events
   - AngularJS and Vue.js tend to expect event emission, but can also take callbacks
-  - in Muir to-date, we have adopted the convention of always passing in callbacks. In the context of Redux, these callbacks are bound action creators.
+  - in Grove to-date, we have adopted the convention of always passing in callbacks. In the context of Redux, these callbacks are bound action creators.
 
 Presentational components should be unaware of overall state. They should not know that Redux is managing state for them. They should not know how to invoke middle-tier APIs. Pull them into some other application and pass them the right inputs (data properties and callback functions), and they should happily function in any context.
 

@@ -1,16 +1,16 @@
-# MarkLogic UI Resources (Muir) React-Redux-Node Template
+# MarkLogic Grove React-Redux-Node Template
 
-Muir (rhymes with 'pure') is a framework to help developers and architects build UI-rich applications backed by MarkLogic, the multi-model, enterprise NoSQL database.
+Grove is a framework to help developers and architects build UI-rich applications backed by MarkLogic, the multi-model, enterprise NoSQL database.
 
-Every Muir Project consists of a one or more middle-tier or UI Applications. Those Applications communicate using defined Muir APIs (at least for core functions: you can also create ad-hoc extensions). Application-behavior is generally added by installing Plugins,which are versioned and thus can be upgraded over the life of the Project.
+Every Grove Project consists of a one or more middle-tier or UI Applications. Those Applications communicate using defined Grove APIs (at least for core functions: you can also create ad-hoc extensions). Application-behavior is generally added by installing Plugins,which are versioned and thus can be upgraded over the life of the Project.
 
-This particular repository contains a Template for the initial reference Muir Project. A Project based on this Template consists of a Node Express middle-tier and a React-Redux front-end. This reference Template provides a simple search and discovery application.
+This particular repository contains a Template for a React-Redux-Node Grove Project. A Project based on this Template consists of a Node Express middle-tier and a React-Redux front-end. This reference Template provides a simple search and discovery application.
 
-Muir and this Project are *alpha* and are still changing often in breaking ways.
+Grove and this Project are *beta* and are still changing often in breaking ways.
 
 ## Create a Project Based on this React-Redux-Node Template
 
-Follow [the instructions in the MUIR Developer Starters Guide](https://wiki.marklogic.com/display/SAL/MUIR+Developer+Starters+Guide) in order to create a new MUIR project.
+Follow [the instructions in the Grove Developer Starters Guide](https://wiki.marklogic.com/display/SAL/Grove+Developer+Starters+Guide) in order to create a new Grove project.
 
 ## About Projects Based on this Template
 
@@ -38,7 +38,7 @@ To start a development server at `localhost:3000`:
 
     npm start
 
-For more discussion about how to make changes to your Muir project see the "Learning to Customize and Extend Your Application" section of [GUIDE.markdown](docs/GUIDE.markdown#developing-your-app) in this repository.
+For more discussion about how to make changes to your Grove project see the "Learning to Customize and Extend Your Application" section of [GUIDE.markdown](docs/GUIDE.markdown#developing-your-app) in this repository.
 
 ## Run your project in production
 
@@ -66,11 +66,11 @@ Much additional documentation is available in `ui/README.markdown` and `middle-t
 
 ## Customizing
 
-As you work with your Muir Project, you will soon want to customize it. To understand the design of the UI-Toolkit and how to customize it to your needs, is most important to understand how to use Muir to quickly create a MarkLogic-backed project - and then to customize it. For this, please *read [the Advanced Guide to Muir Guide](docs/GUIDE.markdown)*.
+As you work with your Grove Project, you will soon want to customize it. To understand the design of the UI-Toolkit and how to customize it to your needs, is most important to understand how to use Grove to quickly create a MarkLogic-backed project - and then to customize it. For this, please *read [the Advanced Guide to Grove](docs/GUIDE.markdown)*.
 
 For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
 
-## Developing Pieces of Muir Itself 
+## Developing Pieces of Grove Itself 
 
 **NOTE: This section is currently out-of-date! Updates coming soon.**
 

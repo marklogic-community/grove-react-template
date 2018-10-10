@@ -15,7 +15,7 @@ services:
   nodejs:
     image:  gumball/grove-node:latest
     environment:
-      MUIR_ML_HOST: marklogic
+      GROVE_ML_HOST: marklogic
     links: 
       - marklogic
     ports:
