@@ -8,10 +8,15 @@ describe('searching', () => {
 
     await page.goto('http://localhost:3000');
 
-    await page.click('input[placeholder=Username]');
-    await page.type('input[placeholder=Username]', 'admin');
-    await page.click('input[placeholder=Password]');
-    await page.type('input[placeholder=Password]', 'admin');
+    const usernameBox = await page.waitForSelector('input[name=username]', {
+      timeout: 1000
+    });
+    const passwordBox = await page.$('input[name=password]');
+
+    await usernameBox.click();
+    await usernameBox.type('admin');
+    await passwordBox.click();
+    await passwordBox.type('admin');
     await page.click('button[type=Submit]');
   });
 
@@ -23,9 +28,10 @@ describe('searching', () => {
       timeout: 1000
     });
     await searchButton.click();
-    searchButton.dispose();
 
-    await page.waitForSelector('.ml-search-results');
+    await page.waitForSelector('.ml-search-results', {
+      timeout: 1000
+    });
     const numberofResults = (await page.$$('.ml-search-result')).length;
     expect(numberofResults).toBe(10);
   });
@@ -39,17 +45,16 @@ describe('searching', () => {
     await searchBar.type('"This does not exist: jlkjlksjdf"');
     const searchButton = await page.$('.ml-execute-search');
     await searchButton.click();
-    searchBar.dispose();
-    searchButton.dispose();
 
-    const resultsHandle = await page.waitForSelector('.ml-search-results');
+    const resultsHandle = await page.waitForSelector('.ml-search-results', {
+      timeout: 1000
+    });
     const resultHtml = await page.evaluate(d => d.innerHTML, resultsHandle);
-    resultsHandle.dispose();
     expect(resultHtml).toContain('No results matched your search');
   });
 
-  xit('works for a document with an escape sequence', async () => {
-    expect.assertions(2);
+  it('works for a document with an escape sequence', async () => {
+    expect.assertions(5);
     const searchBar = await page.waitForSelector('.ml-qtext-input', {
       timeout: 1000
     });
@@ -57,15 +62,40 @@ describe('searching', () => {
     await searchBar.type('"I have an escape sequence."');
     const searchButton = await page.$('.ml-execute-search');
     await searchButton.click();
-    searchBar.dispose();
-    searchButton.dispose();
 
-    await page.waitForSelector('.ml-search-results');
-    const linkToDetail = await page.$('.ml-search-result a');
-    const detailHref = await page.evaluate(a => a.href, linkToDetail);
-    expect(detailHref).toContain('%2FwithEscapeSequence%2520LikeThat');
-    const resultHtml = await page.evaluate(d => d.innerHTML, linkToDetail);
+    await page.waitForSelector('.ml-search-results', {
+      timeout: 1000
+    });
+    const cardLinkToDetail = await page.$('.ml-search-result a');
+    const cardDetailHref = await page.evaluate(a => a.href, cardLinkToDetail);
+    expect(cardDetailHref).toContain('%2FwithEscapeSequence%2520LikeThat');
+    const resultHtml = await page.evaluate(d => d.innerHTML, cardLinkToDetail);
     expect(resultHtml).toContain('I have an escape sequence');
-    await linkToDetail.click();
+
+    const switchToListView = await page.$(
+      'input[name=result-options][value=List]'
+    );
+    await switchToListView.click();
+    const listLinkToDetail = await page.$('.ml-search-result a');
+    const listDetailHref = await page.evaluate(a => a.href, listLinkToDetail);
+    expect(listDetailHref).toContain('%2FwithEscapeSequence%2520LikeThat');
+    await listLinkToDetail.click();
+
+    let detailHandle = await page.waitForSelector('#detail', {
+      timeout: 1000
+    });
+    let detailHtml = await page.evaluate(d => d.innerHTML, detailHandle);
+    detailHandle.dispose();
+    expect(detailHtml).toContain('I have an escape sequence');
+
+    // regression test
+    await page.goBack();
+    await page.goForward();
+    detailHandle = await page.waitForSelector('#detail', {
+      timeout: 1000
+    });
+    detailHtml = await page.evaluate(d => d.innerHTML, detailHandle);
+    detailHandle.dispose();
+    expect(detailHtml).toContain('I have an escape sequence');
   });
 });

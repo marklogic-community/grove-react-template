@@ -1,11 +1,12 @@
 {
   "name": "grove-react-template-test",
+  "private": true,
   "version": "0.0.1",
   "description": "End-to-end test suite for grove-react-template",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watchAll"
   },
   "author": "Patrick McElwee (github.com/patrickmcelwee)",
   "license": "Apache-2.0",
