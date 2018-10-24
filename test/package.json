@@ -1,0 +1,20 @@
+{
+  "name": "grove-react-template-test",
+  "version": "0.0.1",
+  "description": "End-to-end test suite for grove-react-template",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "author": "Patrick McElwee (github.com/patrickmcelwee)",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.14.3",
+    "puppeteer": "^1.9.0"
+  }
+}
