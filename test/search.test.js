@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const utils = require('./utils');
 
 describe('searching', () => {
   let browser, page;
@@ -8,16 +9,7 @@ describe('searching', () => {
 
     await page.goto('http://localhost:3000');
 
-    const usernameBox = await page.waitForSelector('input[name=username]', {
-      timeout: 1000
-    });
-    const passwordBox = await page.$('input[name=password]');
-
-    await usernameBox.click();
-    await usernameBox.type('admin');
-    await passwordBox.click();
-    await passwordBox.type('admin');
-    await page.click('button[type=Submit]');
+    await utils.login(page);
   });
 
   afterEach(() => browser.close());
