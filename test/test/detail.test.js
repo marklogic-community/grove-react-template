@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const utils = require('./utils');
+const utils = require('../utils');
 
 describe('detail', () => {
   let browser, page;
@@ -19,6 +19,8 @@ describe('detail', () => {
     await page.goto(
       'http://localhost:3000/detail/%2Fsample-data%2Fdata-2240.json'
     );
+    // TODO: this method could cause false positives, if
+    // "Hello, Townsend Frank!" existed on the bad page ...
     let detailHandle;
     try {
       detailHandle = await page.waitForSelector('#detail', {

@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const utils = require('./utils');
+const utils = require('../utils');
 
 describe('searching', () => {
   let browser, page;
