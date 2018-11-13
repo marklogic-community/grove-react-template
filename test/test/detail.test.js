@@ -17,7 +17,7 @@ describe('detail', () => {
   it('works', async () => {
     expect.assertions(1);
     await page.goto(
-      'http://localhost:3000/detail/%2Fsample-data%2Fdata-2240.json'
+      'http://localhost:3000/detail?id=%2Fsample-data%2Fdata-2240.json&something=else'
     );
     // TODO: this method could cause false positives, if
     // "Hello, Townsend Frank!" existed on the bad page ...

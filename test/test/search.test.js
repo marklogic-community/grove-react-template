@@ -46,7 +46,7 @@ describe('searching', () => {
   });
 
   it('works for a document with an escape sequence', async () => {
-    expect.assertions(5);
+    expect.assertions(6);
     const searchBar = await page.waitForSelector('.ml-qtext-input', {
       timeout: 1000
     });
@@ -80,9 +80,18 @@ describe('searching', () => {
     detailHandle.dispose();
     expect(detailHtml).toContain('I have an escape sequence');
 
-    // regression test
+    // regression test, clicking back-forward in browser
     await page.goBack();
     await page.goForward();
+    detailHandle = await page.waitForSelector('#detail', {
+      timeout: 1000
+    });
+    detailHtml = await page.evaluate(d => d.innerHTML, detailHandle);
+    detailHandle.dispose();
+    expect(detailHtml).toContain('I have an escape sequence');
+
+    // regression test 2, refreshing the page
+    await page.reload();
     detailHandle = await page.waitForSelector('#detail', {
       timeout: 1000
     });
