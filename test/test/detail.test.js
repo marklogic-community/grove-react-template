@@ -24,7 +24,7 @@ describe('detail', () => {
     let detailHandle;
     try {
       detailHandle = await page.waitForSelector('#detail', {
-        timeout: 1000
+        timeout: 2000
       });
     } catch (e) {
       if (e.name === 'TimeoutError') {

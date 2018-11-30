@@ -99,4 +99,22 @@ describe('searching', () => {
     detailHandle.dispose();
     expect(detailHtml).toContain('I have an escape sequence');
   });
+
+  it('works when finding documents with number uris', async () => {
+    expect.assertions(1);
+    const searchBar = await page.waitForSelector('.ml-qtext-input', {
+      timeout: 1000
+    });
+    await searchBar.click();
+    await searchBar.type('"I have a number as my uri"');
+    const searchButton = await page.$('.ml-execute-search');
+    await searchButton.click();
+
+    await page.waitForSelector('.ml-search-results', {
+      timeout: 1000
+    });
+    const cardLinkToDetail = await page.$('.ml-search-result a');
+    const cardDetailHref = await page.evaluate(a => a.href, cardLinkToDetail);
+    expect(cardDetailHref).toContain('id=800');
+  });
 });
