@@ -39,7 +39,7 @@ describe('searching', () => {
     await searchButton.click();
 
     const resultsHandle = await page.waitForSelector('.ml-search-results', {
-      timeout: 1000
+      timeout: 2000
     });
     const resultHtml = await page.evaluate(d => d.innerHTML, resultsHandle);
     expect(resultHtml).toContain('No results matched your search');
