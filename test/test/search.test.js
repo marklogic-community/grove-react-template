@@ -17,7 +17,7 @@ describe('searching', () => {
   it('finds some results', async () => {
     expect.assertions(1);
     const searchButton = await page.waitForSelector('.ml-execute-search', {
-      timeout: 1000
+      timeout: 2000
     });
     await searchButton.click();
 

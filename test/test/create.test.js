@@ -18,7 +18,7 @@ describe('create page', () => {
     await page.click('button[type=submit]');
 
     const detailHandle = await page.waitForSelector('#detail', {
-      timeout: 2000
+      timeout: 3000
     });
     let detailHtml = await page.evaluate(d => d.innerHTML, detailHandle);
     detailHandle.dispose();
