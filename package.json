@@ -1,6 +1,6 @@
 {
   "name": "grove-react-template",
-  "version": "0.10.0-beta",
+  "version": "1.0.0-rc.1",
   "description": "React/Redux template for MarkLogic Grove",
   "devDependencies": {
     "concurrently": "^3.6.1",
