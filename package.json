@@ -1,7 +1,8 @@
 {
-  "name": "grove-react-template",
+  "name": "@marklogic-community/grove-react-template",
   "version": "1.0.0-rc.1",
   "description": "React/Redux template for MarkLogic Grove",
+  "private": true,
   "devDependencies": {
     "concurrently": "^3.6.1",
     "cross-env": "^5.2.0"
@@ -18,10 +19,6 @@
     "middleTier:prod": "cd middle-tier && npm run start:prod",
     "ui": "cd ui && npm start",
     "test": "concurrently 'cd middle-tier && npm test' 'cd ui && npm test'"
-  },
-  "repository": {
-    "type": "git",
-    "url": "ssh://git@project.marklogic.com:7999/nacw/grove-react-template.git"
   },
   "keywords": [
     "MarkLogic",
