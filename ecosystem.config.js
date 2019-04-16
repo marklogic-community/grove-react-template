@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "@grove-app-name",
-      script: "./middle-tier/node-app.js",
+      script: "node-app.js",
       cwd: "./middle-tier/",
       watch: true,
       restart_delay: 4000,
