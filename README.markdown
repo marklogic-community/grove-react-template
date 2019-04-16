@@ -10,7 +10,7 @@ Grove and this Project are *beta* and are still changing often in breaking ways.
 
 ## Create a Project Based on this React-Redux-Node Template
 
-Follow [the instructions in the Grove Developer Starters Guide](https://wiki.marklogic.com/display/SAL/Grove+Developer+Starters+Guide) in order to create a new Grove project.
+Follow [the instructions in the Grove Getting Started Guide](https://marklogic-community.github.io/grove/guides/getting-started/) in order to create a new Grove project.
 
 ## About Projects Based on this Template
 
@@ -70,7 +70,7 @@ As you work with your Grove Project, you will soon want to customize it. To unde
 
 For those seeking to contribute to the project, our evolving [Best Practices document](docs/BEST_PRACTICES.markdown) are designed to get contributors on the same page and to communicate some of our goals. The [Contributing document](docs/CONTRIBUTING.markdown) has additional concrete advice for contributors. Please read both.
 
-## Developing Pieces of Grove Itself 
+## Developing Pieces of Grove Itself
 
 **NOTE: This section is currently out-of-date! Updates coming soon.**
 
