@@ -1,6 +1,6 @@
 # Contributing to Grove
 
-A document about contributing to Grove in general is found at https://wiki.marklogic.com/display/SAL/Grove+Developer+Starters+Guide.
+A document about contributing to Grove in general is found at https://wiki.marklogic.com/display/SAL/Grove+Contributor+Starters+Guide.
 
 ## Contributing to the React Template Specifically
 
