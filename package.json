@@ -1,8 +1,11 @@
 {
   "name": "@marklogic-community/grove-react-template",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "description": "React/Redux template for MarkLogic Grove",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marklogic-community/grove-react-template.git"
+  },
   "devDependencies": {
     "concurrently": "^3.6.1",
     "cross-env": "^5.2.0"
@@ -30,8 +33,8 @@
   "license": "Apache-2.0",
   "contributors": [
     {
-      "name": "Patrick McElwee",
-      "url": "https://github.com/patrickmcelwee"
+      "name": "Matt Pileggi",
+      "url": "https://github.com/withjam"
     },
     {
       "name": "Marianne Myers",
