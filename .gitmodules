@@ -1,9 +1,12 @@
 [submodule "server"]
 	path = middle-tier
         url = https://github.com/marklogic-community/grove-node.git
+				branch = development
 [submodule "marklogic"]
 	path = marklogic
 	url = https://github.com/marklogic-community/grove-ml-gradle.git
+	branch = development
 [submodule "ui"]
 	path = ui
 	url = https://github.com/marklogic-community/grove-react-ui.git
+	branch = development
