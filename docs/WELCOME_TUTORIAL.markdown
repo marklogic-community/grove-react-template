@@ -58,7 +58,7 @@ In case you missed it, the README has [VERY Quick Start instructions that show y
 
 Clone down the reference application provided by the Grove project. For this, you will need to have a command-line terminal and [git](https://git-scm.com/downloads) for version-control.
 
-    git clone --recursive ssh://git@project.marklogic.com:7999/nacw/grove-react-template.git
+    git clone --recursive https://github.com/marklogic-community/grove-react-template.git
     cd grove-react-template
  
 The reference application has everything you need to get a search-and-discovery application running. We'll describe it all in more detail below, but just to orient you, be aware that this source code includes:
