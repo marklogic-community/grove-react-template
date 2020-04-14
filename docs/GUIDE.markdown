@@ -11,7 +11,7 @@ The UI and middle-tier Applications are yours to extend using the tools of their
 
 ## Installing the template
 
-The recommended way to install this template is using [the grove-cli](https://project.marklogic.com/repo/users/pmcelwee/repos/grove-cli/browse) as [described in the README](README.markdown).
+The recommended way to install this template is using [the grove-cli](https://github.com/marklogic-community/grove-cli) as [described in the README](README.markdown).
 
 Note that while, at the moment, you can `git clone --recursive` this repository and get a working application, that is an implementation detail and is likely to change. The grove-cli is the one supported way to turn this Template into a Project.
 
@@ -61,11 +61,11 @@ If you find yourself editing React components, take a look at the [documentation
 
 We selected React in large part because there are many excellent resources for learning to work with the framework (as well as extending it). To learn React, you should [start with the official React docs](https://reactjs.org/docs/hello-world.html) or [tutorial](https://reactjs.org/tutorial/tutorial.html), which will introduce you to the framework in a highly intuitive way.
 
-The presentational React components are provided through a separate libary: [grove-core-react-components](https://project.marklogic.com/repo/projects/NACW/repos/grove-core-react-components/browse). These components are 'dumb', presentation-only React components that render html based on provided properties and invoke callback functions based on user interaction. (Here is a [good article](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the useful pattern of dividing an application between 'dumb', presentational components and 'smart' containers. We lean heavily on this pattern in Grove.)
+The presentational React components are provided through the [grove-react-ui](https://github.com/marklogic-community/grove-react-ui). These components are 'dumb', presentation-only React components that render html based on provided properties and invoke callback functions based on user interaction. (Here is a [good article](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the useful pattern of dividing an application between 'dumb', presentational components and 'smart' containers. We lean heavily on this pattern in Grove.)
 
 In particular, the React components are unaware of the Redux layer. They simply define properties and functions that they expect to be passed to them. They are only responsible for rendering an appropriate view based on those properties and for wiring user actions to the passed-in functions.
 
-The grove-core-react-components are imported and used in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/MLSearchContainer.js`](`ui/src/containers/MLSearchContainer.js`).
+The Grove React components are imported and used in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/SearchContainer.js`](`ui/src/containers/SearchContainer.js`).
 
 If you want to change the React components, you can provide your own components and import those instead. (Your components may also import some of the grove-core-react-components, so you don't have to recreate everything.)
 
@@ -81,7 +81,7 @@ Each module also defines [actionCreators](http://redux.js.org/docs/basics/Action
 
 Finally, each Redux module currently defines an interface to the service tier (for example, for communicating with MarkLogic or other Web services to run a search). It calls out to a specific endpoint and expects a certain shape of response. We are still fleshing this out, but the goal is to make the service tier completely swappable, so long as an adapter is provided that provides the Redux module the interface that it requires.
 
-At the moment, we provide three modules: [grove-search-redux](https://project.marklogic.com/repo/projects/NACW/repos/grove-search-redux/browse), [grove-crud-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/grove-crud-redux/browse), and [grove-user-redux](https://project.marklogic.com/repo/users/pmcelwee/repos/grove-user-redux/browse).
+At the moment, we provide three modules as part of the [grove-react-ui](https://github.com/marklogic-community/grove-react-ui): search, crud, and user.
 
 Your application needs to provide some glue to connect the Redux modules to the 'dumb' React components, which are not aware of Redux. This Template does that, in [`ui/src/App.js`](`ui/src/App.js`) and [`ui/src/containers/`](`ui/src/containers/`), which contains 'smart' React containers that are Redux-aware and pass the appropriate properties and functions down to the 'dumb' React components.
 
@@ -93,7 +93,7 @@ For example, if you create a component that toggle a pop-up on or off, the `popU
 
 ### Default Node middle-tier
 
-The Grove Node middle-tier is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this Grove middle-tier Application in [its repository](https://project.marklogic.com/repo/projects/NACW/repos/grove-node/browse).
+The Grove Node middle-tier is present in this repository as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). You can learn more about this Grove middle-tier Application in [its repository](https://github.com/marklogic-community/grove-node).
 
 ### MarkLogic Configuration
 
