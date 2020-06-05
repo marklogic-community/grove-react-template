@@ -1,6 +1,6 @@
 {
   "name": "@marklogic-community/grove-react-template",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "React/Redux template for MarkLogic Grove",
   "repository": {
     "type": "git",
